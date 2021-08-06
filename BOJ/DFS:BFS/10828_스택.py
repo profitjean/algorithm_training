@@ -24,5 +24,5 @@ for _ in range(n):
         if len(stack) == 0:
             print(-1)
         else:
-            print(stack[-1]) # 스택의 가장 위에 있는 정수
+            print(stack[-1]) # 스택의 가장 위. 배열의 가장 마지막(append로 스택 생각해보자)
     
