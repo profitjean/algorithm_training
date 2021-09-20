@@ -20,3 +20,5 @@ for i in case: # 숫자카드를 딕셔너리와 비교하여 존재하면 앞�
     else:
         print(0, end=' ')
 
+
+
