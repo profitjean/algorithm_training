@@ -7,5 +7,15 @@
 
 import Foundation
 
-print("Hello, World!")
+var integer = Int(readLine()!)!
+var double = Double(readLine()!)!
+var string = readLine()!
+
+var i = 4
+var d = 4.0
+var s = "HackerRank"
+
+print(i + integer)
+print(d + double)
+print(s + string)
 
