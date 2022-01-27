@@ -5,17 +5,21 @@
 //  Created by 이윤진 on 2021/09/02.
 //
 
-import Foundation
+func checkJobEligibility() {
 
-var integer = Int(readLine()!)!
-var double = Double(readLine()!)!
-var string = readLine()!
+    var age = 80
 
-var i = 4
-var d = 4.0
-var s = "HackerRank"
+    guard age >= 18, age <= 40 else { // 18-40이 아니라면
+        print("Not Eligible for Job")
+        return
+    }
 
-print(i + integer)
-print(d + double)
-print(s + string)
+    guard age >= 41, age <= 80 else { // 41-80이 아니라면
+        print("next time")
+        return
+    }
+    print("You are eligible for this job")
 
+}
+
+checkJobEligibility()
