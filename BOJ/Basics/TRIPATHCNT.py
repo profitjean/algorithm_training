@@ -1,22 +1,28 @@
 import sys
-input = sys.stdin.readline
-maximum = 0
-result = 0
-case = int(input())
+case = int(sys.stdin.readline().rstrip())
 for _ in range(case):
-    n = int(input())
-    triangle = [list(map(int, input().split())) for _ in range(n)]
-    for i in range(1, n):
-        for j in range(i+1):
-            if j == 0:
-                triangle[i][j] += triangle[i-1][j]
-            elif j == i:
-                triangle[i][j] += triangle[i-1][j-1]
-            else:
-                triangle[i][j] += max(triangle[i-1][j], triangle[i-1][j-1])
-    maximum = (max(triangle[-1]))
+    n = int(sys.stdin.readline().rstrip())
+    triangle = [list(map(int, sys.stdin.readline().rstrip().split())) for _ in range(n)]
 
-    for k in triangle[-1]:
-        if maximum == k:
-            result = result + 1
-    print(result)
+    memo = dict()
+    def path(y,x):
+        if y == n -1:
+            return triangle[y][x]
+        if (x,y) not in memo:
+            memo[(y,x)] = max(path(y+1,x), path(y+1,x+1)) + triangle[y][x]
+        return memo[(y,x)]
+
+    memo2 = dict()
+    def count(y,x):
+        if y == n -1:
+            return 1
+        if (y,x) not in memo2:
+            result = 0
+            if path(y+1,x) >= path(y+1,x+1):
+                result += count(y+1,x)
+            if path(y+1,x+1) >= path(y+1,x):
+                result += count(y+1,x+1)
+            memo2[(y,x)] = result
+        return memo2[(y,x)]
+    path(0,0)
+    print(count(0,0))
