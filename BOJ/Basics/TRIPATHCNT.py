@@ -1,10 +1,12 @@
+import functools
 import sys
+
 case = int(sys.stdin.readline().rstrip())
 for _ in range(case):
     n = int(sys.stdin.readline().rstrip())
     triangle = [list(map(int, sys.stdin.readline().rstrip().split())) for _ in range(n)]
-
     memo = dict()
+    @functools.lru_cache(maxsize=None)
     def path(y,x):
         if y == n -1:
             return triangle[y][x]
@@ -13,6 +15,7 @@ for _ in range(case):
         return memo[(y,x)]
 
     memo2 = dict()
+    @functools.lru_cache(maxsize=None)
     def count(y,x):
         if y == n -1:
             return 1
