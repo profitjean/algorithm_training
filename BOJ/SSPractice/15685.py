@@ -16,7 +16,6 @@ def solution(idx, cnt):
         return
     value.append(idx)
     print('value1', value)
-
     solution(idx+1, cnt+1)
     value.pop()
     print('value2', value)
