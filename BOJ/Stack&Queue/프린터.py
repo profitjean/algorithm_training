@@ -10,7 +10,7 @@ def solution(priorities, location):
     for i in range(len(priorities)):
         index.append(i)
 
-    while wait:
+    while len(wait)>1:
         q = wait.popleft()
         i = index.popleft()
         if q < max(wait):
@@ -20,3 +20,8 @@ def solution(priorities, location):
             break
     answer = flag
     return answer
+
+'''
+모범답안 : enumerate 사용해서 현재 대기순서의 인덱스 값 추출하기
+'''
+

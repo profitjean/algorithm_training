@@ -44,7 +44,7 @@ def dfs(count):
     for i in range(n):
         for j in range(n):
             if data[i][j] == 'X': # 아무것도 없는 부분이라면
-                data[i][j] = 'O' # 장애물을 배치시켜보면서 탐색
+                data[ i][j] = 'O' # 장애물을 배치시켜보면서 탐색
                 dfs(count + 1)
                 if result == "YES":
                     return
