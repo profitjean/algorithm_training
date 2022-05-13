@@ -35,9 +35,7 @@ def dfs(i, now):
             div -= 1
             dfs(i+1, int(now/numbers[i]))
             div += 1
-
 dfs(1, numbers[0])
-
 print(max_value)
 print(min_value)
 
